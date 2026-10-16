@@ -49,7 +49,9 @@ def evolve_kinetics(
     rate, rc_ddC, rc_ddT, kf = kinet.forward_with_rate_constants(temp, pres, conc_kinet)
 
     # compute reaction jacobian
-    jac = kinet.jacobian(temp, conc_kinet, cp_vol, rate, rc_ddC, rc_ddT, rate_constants=kf)
+    jac = kinet.jacobian(
+        temp, conc_kinet, cp_vol, rate, rc_ddC, rc_ddT, rate_constants=kf
+    )
 
     # compute concentration change
     stoich = kinet.buffer("stoich")
